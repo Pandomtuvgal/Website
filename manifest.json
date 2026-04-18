@@ -1,0 +1,19 @@
+{
+  "name": "פנדום טוב גל",
+  "short_name": "Pandom Tuv Gal",
+  "description": "קבוצת יזמות נדל״ן — התחדשות עירונית, יזמות והשקעות מניבות.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF7F1",
+  "theme_color": "#1C2D5A",
+  "lang": "he",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "/assets/logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}
