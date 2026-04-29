@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SOLD 7-9 — Design Palettes Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800&family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Assistant:wght@300;400;600;700&family=Ploni:wght@300;400;700&family=Cormorant+Garamond:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html,body{font-family:'Heebo',sans-serif;background:#1a1a1a;color:#eee;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .page{max-width:1400px;margin:0 auto;padding:60px 32px}
+  .page-title{font-family:'Frank Ruhl Libre',serif;font-size:48px;font-weight:300;letter-spacing:-0.5px;margin-bottom:8px;color:#fff}
+  .page-sub{font-size:16px;color:#999;margin-bottom:48px;max-width:680px}
+  .palette{margin-bottom:80px;border-radius:8px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+  .palette-meta{background:#222;padding:24px 32px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:16px;border-bottom:1px solid #333}
+  .palette-meta h2{font-family:'Frank Ruhl Libre',serif;font-size:28px;font-weight:400;color:#fff}
+  .palette-meta .vibe{color:#aaa;font-size:14px;letter-spacing:1px;text-transform:uppercase}
+  .swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:0;background:#222}
+  .swatch{padding:24px 16px;display:flex;flex-direction:column;justify-content:flex-end;min-height:120px;font-family:'Inter',monospace;font-size:11px;line-height:1.4;letter-spacing:0.5px}
+  .swatch .name{font-weight:600;text-transform:uppercase;font-size:10px;opacity:0.7;margin-bottom:4px}
+  .swatch .hex{font-weight:500}
+  .preview{display:grid;grid-template-columns:1.4fr 1fr;gap:0;min-height:520px}
+  @media (max-width:900px){.preview{grid-template-columns:1fr}.swatches{grid-template-columns:repeat(3,1fr)}}
+  .hero{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:48px;overflow:hidden;background-size:cover;background-position:center}
+  .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,rgba(0,0,0,0.15) 60%,rgba(0,0,0,0.35) 100%);z-index:1}
+  .hero > *{position:relative;z-index:2}
+  .hero-top{display:flex;justify-content:space-between;align-items:center}
+  .logo-mark{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;letter-spacing:6px;color:#fff}
+  .nav-links{display:flex;gap:24px;font-size:13px;letter-spacing:1px}
+  .nav-links a{color:#fff;text-decoration:none;opacity:0.85}
+  .hero-content{max-width:520px}
+  .badge{display:inline-block;font-size:11px;letter-spacing:3px;text-transform:uppercase;padding:6px 14px;border:1px solid currentColor;border-radius:2px;margin-bottom:20px;font-weight:500}
+  .h1{font-size:56px;line-height:1.05;letter-spacing:-1px;margin-bottom:16px;font-weight:400}
+  .h1-sub{font-size:18px;line-height:1.5;margin-bottom:28px;opacity:0.92;font-weight:300}
+  .cta-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .btn{display:inline-block;padding:14px 28px;font-size:14px;letter-spacing:1.5px;font-weight:500;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s}
+  .btn-ghost{background:transparent;border:1px solid currentColor;color:inherit}
+  .form-side{padding:48px 40px;display:flex;flex-direction:column;justify-content:center}
+  .form-title{font-size:22px;margin-bottom:8px;font-weight:500}
+  .form-sub{font-size:13px;margin-bottom:24px;opacity:0.7}
+  .field{display:flex;flex-direction:column;margin-bottom:14px}
+  .field label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:6px;opacity:0.7}
+  .field input{padding:12px 14px;border:1px solid;background:transparent;font-family:inherit;font-size:14px;color:inherit;border-radius:0}
+  .field input:focus{outline:none}
+  .form-btn{margin-top:8px;padding:14px;font-size:14px;letter-spacing:2px;border:none;cursor:pointer;font-family:inherit;font-weight:600}
+  .typo-strip{padding:24px 32px;display:flex;gap:32px;align-items:baseline;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.06);background:#222;color:#aaa;font-size:13px}
+  .typo-strip strong{color:#fff}
+
+  /* ============ PALETTE A: Clean White & Navy ============ */
+  .pal-a .hero{background-image:url('assets/exterior-day.jpg');color:#fff}
+  .pal-a .hero .badge{color:#E8C679}
+  .pal-a .hero .btn-primary{background:#E8C679;color:#0F2A47}
+  .pal-a .hero .btn-ghost{color:#fff;border-color:#fff}
+  .pal-a .hero .h1{font-family:'Frank Ruhl Libre',serif}
+  .pal-a .form-side{background:#FAFAF7;color:#0F2A47}
+  .pal-a .form-side .form-title{font-family:'Frank Ruhl Libre',serif;font-weight:500}
+  .pal-a .field input{border-color:#D4CFC4;color:#0F2A47}
+  .pal-a .field input:focus{border-color:#0F2A47}
+  .pal-a .form-btn{background:#0F2A47;color:#fff}
+
+  /* ============ PALETTE B: Warm Beige & Charcoal ============ */
+  .pal-b .hero{background-image:url('assets/interior-garden.jpg');color:#F4EFE6}
+  .pal-b .hero .badge{color:#F4EFE6}
+  .pal-b .hero .btn-primary{background:#F4EFE6;color:#2C2A26}
+  .pal-b .hero .btn-ghost{color:#F4EFE6;border-color:#F4EFE6}
+  .pal-b .hero .h1{font-family:'Frank Ruhl Libre',serif;font-weight:300}
+  .pal-b .form-side{background:#F4EFE6;color:#2C2A26}
+  .pal-b .form-side .form-title{font-family:'Frank Ruhl Libre',serif;font-weight:400}
+  .pal-b .field input{border-color:#C8BFAF;color:#2C2A26}
+  .pal-b .field input:focus{border-color:#2C2A26}
+  .pal-b .form-btn{background:#2C2A26;color:#F4EFE6}
+
+  /* ============ PALETTE C: Bold Navy & Cream ============ */
+  .pal-c .hero{background-image:url('assets/exterior-night.jpg');background-color:#0F2A47;color:#F5F1E8}
+  .pal-c .hero::before{background:linear-gradient(to right,rgba(15,42,71,0.85) 0%,rgba(15,42,71,0.5) 60%,rgba(15,42,71,0.25) 100%)}
+  .pal-c .hero .badge{color:#C9A961;border-color:#C9A961}
+  .pal-c .hero .btn-primary{background:#C9A961;color:#0F2A47}
+  .pal-c .hero .btn-ghost{color:#F5F1E8;border-color:#F5F1E8}
+  .pal-c .hero .h1{font-family:'Frank Ruhl Libre',serif;font-weight:400}
+  .pal-c .form-side{background:#0A1F36;color:#F5F1E8}
+  .pal-c .form-side .form-title{font-family:'Frank Ruhl Libre',serif}
+  .pal-c .field input{border-color:#2A4566;color:#F5F1E8}
+  .pal-c .field input:focus{border-color:#C9A961}
+  .pal-c .form-btn{background:#C9A961;color:#0F2A47}
+
+  /* ============ PALETTE D: Soft Stone & Forest ============ */
+  .pal-d .hero{background-image:url('assets/interior-living.jpg');color:#fff}
+  .pal-d .hero::before{background:linear-gradient(135deg,rgba(45,62,47,0.55) 0%,rgba(45,62,47,0.2) 60%,rgba(0,0,0,0.4) 100%)}
+  .pal-d .hero .badge{color:#EFEDE7;border-color:#EFEDE7}
+  .pal-d .hero .btn-primary{background:#EFEDE7;color:#2D3E2F}
+  .pal-d .hero .btn-ghost{color:#EFEDE7;border-color:#EFEDE7}
+  .pal-d .hero .h1{font-family:'Frank Ruhl Libre',serif;font-weight:300}
+  .pal-d .form-side{background:#EFEDE7;color:#2D3E2F}
+  .pal-d .form-side .form-title{font-family:'Frank Ruhl Libre',serif;font-weight:500}
+  .pal-d .field input{border-color:#C2BCAC;color:#2D3E2F}
+  .pal-d .field input:focus{border-color:#2D3E2F}
+  .pal-d .form-btn{background:#2D3E2F;color:#EFEDE7}
+
+  /* ============ PALETTE E: Pure White & Bronze ============ */
+  .pal-e .hero{background-image:url('assets/interior-living.jpg');color:#1C1C1C}
+  .pal-e .hero::before{background:linear-gradient(to bottom,rgba(255,255,255,0.05) 0%,rgba(255,255,255,0.4) 70%,rgba(255,255,255,0.85) 100%)}
+  .pal-e .hero .badge{color:#8B6F47;border-color:#8B6F47}
+  .pal-e .hero .btn-primary{background:#1C1C1C;color:#fff}
+  .pal-e .hero .btn-ghost{color:#1C1C1C;border-color:#1C1C1C}
+  .pal-e .hero .h1{font-family:'Frank Ruhl Libre',serif;font-weight:400}
+  .pal-e .hero .nav-links a, .pal-e .hero .logo-mark{color:#1C1C1C}
+  .pal-e .form-side{background:#FFFFFF;color:#1C1C1C;border-right:1px solid #EEE9E1}
+  .pal-e .form-side .form-title{font-family:'Frank Ruhl Libre',serif;font-weight:500}
+  .pal-e .field input{border-color:#D9D2C5;color:#1C1C1C}
+  .pal-e .field input:focus{border-color:#8B6F47}
+  .pal-e .form-btn{background:#8B6F47;color:#fff}
+
+  /* helper for label tags */
+  .tag{display:inline-block;font-size:10px;padding:3px 8px;border-radius:2px;letter-spacing:1px;text-transform:uppercase;background:#333;color:#bbb;margin-inline-start:8px;font-family:'Inter',monospace;vertical-align:middle}
+  .footer-note{margin-top:48px;padding:24px;background:#222;border-radius:8px;color:#bbb;font-size:14px;line-height:1.7}
+  .footer-note strong{color:#fff}
+</style>
+</head>
+<body>
+<div class="page">
+  <h1 class="page-title">SOLD 7-9 — לוחות צבעים</h1>
+  <p class="page-sub">חמישה כיווני עיצוב לדף נחיתה. כל פאלטה מוצגת עם תמונת רקע אמיתית של הפרויקט, גופן עברי, ודוגמה של אזור הגיבור + טופס יצירת קשר.</p>
+
+  <!-- ===================== PALETTE A ===================== -->
+  <div class="palette pal-a">
+    <div class="palette-meta">
+      <div>
+        <h2>A · Clean White & Navy <span class="tag">Trustworthy · Luxe</span></h2>
+        <p style="color:#aaa;font-size:13px;margin-top:4px">לבן נקי + נייבי של ווייס + קצוות שמפניה. הקלאסי, הבטוח, "פרויקט יוקרה".</p>
+      </div>
+      <div class="vibe">Mood: Crisp · Premium</div>
+    </div>
+    <div class="swatches">
+      <div class="swatch" style="background:#FAFAF7;color:#0F2A47"><span class="name">Background</span><span class="hex">#FAFAF7</span></div>
+      <div class="swatch" style="background:#FFFFFF;color:#0F2A47;border-inline-start:1px solid #eee"><span class="name">Surface</span><span class="hex">#FFFFFF</span></div>
+      <div class="swatch" style="background:#0F2A47;color:#fff"><span class="name">Primary</span><span class="hex">#0F2A47</span></div>
+      <div class="swatch" style="background:#E8C679;color:#0F2A47"><span class="name">Accent</span><span class="hex">#E8C679</span></div>
+      <div class="swatch" style="background:#1A1A1A;color:#fff"><span class="name">Text</span><span class="hex">#1A1A1A</span></div>
+    </div>
+    <div class="preview">
+      <div class="hero">
+        <div class="hero-top">
+          <div class="nav-links"><a>הפרויקט</a><a>הדירות</a><a>גלריה</a><a>צור קשר</a></div>
+          <div class="logo-mark">SOLD 7-9</div>
+        </div>
+        <div class="hero-content">
+          <span class="badge">פרויקט בוטיק · בשיווק</span>
+          <h1 class="h1">בית של פעם אחת בחיים.</h1>
+          <p class="h1-sub">28 דירות בוטיק בלב השכונה. אדריכלות מוקפדת, חללים פתוחים ואור טבעי בכל פינה.</p>
+          <div class="cta-row">
+            <button class="btn btn-primary">לקבלת פרטים</button>
+            <button class="btn btn-ghost">צפייה בגלריה</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-side">
+        <h3 class="form-title">השאירו פרטים</h3>
+        <p class="form-sub">נציג מהפרויקט יחזור אליכם תוך 24 שעות</p>
+        <div class="field"><label>שם מלא</label><input type="text" placeholder="ישראל ישראלי"></div>
+        <div class="field"><label>טלפון</label><input type="tel" placeholder="050-0000000"></div>
+        <div class="field"><label>אימייל</label><input type="email" placeholder="name@email.com"></div>
+        <button class="form-btn">שליחה</button>
+      </div>
+    </div>
+    <div class="typo-strip">
+      <span><strong>Headlines:</strong> Frank Ruhl Libre (Serif)</span>
+      <span><strong>Body:</strong> Heebo (Sans)</span>
+      <span><strong>Mood:</strong> כמו park-tower.co.il, נקי וקלאסי</span>
+    </div>
+  </div>
+
+  <!-- ===================== PALETTE B ===================== -->
+  <div class="palette pal-b">
+    <div class="palette-meta">
+      <div>
+        <h2>B · Warm Beige & Charcoal <span class="tag">Calm · Residential</span></h2>
+        <p style="color:#aaa;font-size:13px;margin-top:4px">קרם חמים + פחם כהה. מרגיש ביתי, רגוע, בדיוק כמו תמונות הפנים של הפרויקט.</p>
+      </div>
+      <div class="vibe">Mood: Warm · Lived-in</div>
+    </div>
+    <div class="swatches">
+      <div class="swatch" style="background:#F4EFE6;color:#2C2A26"><span class="name">Background</span><span class="hex">#F4EFE6</span></div>
+      <div class="swatch" style="background:#E1D9CC;color:#2C2A26"><span class="name">Surface</span><span class="hex">#E1D9CC</span></div>
+      <div class="swatch" style="background:#2C2A26;color:#F4EFE6"><span class="name">Primary</span><span class="hex">#2C2A26</span></div>
+      <div class="swatch" style="background:#8A7B6A;color:#fff"><span class="name">Accent</span><span class="hex">#8A7B6A</span></div>
+      <div class="swatch" style="background:#1F1D1A;color:#fff"><span class="name">Text</span><span class="hex">#1F1D1A</span></div>
+    </div>
+    <div class="preview">
+      <div class="hero">
+        <div class="hero-top">
+          <div class="nav-links"><a>הפרויקט</a><a>הדירות</a><a>גלריה</a><a>צור קשר</a></div>
+          <div class="logo-mark">SOLD 7-9</div>
+        </div>
+        <div class="hero-content">
+          <span class="badge">פרויקט בוטיק · בשיווק</span>
+          <h1 class="h1">חיים שמרגישים כמו בית.</h1>
+          <p class="h1-sub">דירות מוארות, מרפסות גדולות וגינות פרטיות. שכונה שקטה, רגע מהכל.</p>
+          <div class="cta-row">
+            <button class="btn btn-primary">לקבלת פרטים</button>
+            <button class="btn btn-ghost">צפייה בגלריה</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-side">
+        <h3 class="form-title">השאירו פרטים</h3>
+        <p class="form-sub">נציג מהפרויקט יחזור אליכם תוך 24 שעות</p>
+        <div class="field"><label>שם מלא</label><input type="text" placeholder="ישראל ישראלי"></div>
+        <div class="field"><label>טלפון</label><input type="tel" placeholder="050-0000000"></div>
+        <div class="field"><label>אימייל</label><input type="email" placeholder="name@email.com"></div>
+        <button class="form-btn">שליחה</button>
+      </div>
+    </div>
+    <div class="typo-strip">
+      <span><strong>Headlines:</strong> Frank Ruhl Libre Light</span>
+      <span><strong>Body:</strong> Heebo</span>
+      <span><strong>Mood:</strong> כמו hod-hadar.co.il, חמים ורגוע</span>
+    </div>
+  </div>
+
+  <!-- ===================== PALETTE C ===================== -->
+  <div class="palette pal-c">
+    <div class="palette-meta">
+      <div>
+        <h2>C · Bold Navy & Cream <span class="tag">Premium · Confident</span></h2>
+        <p style="color:#aaa;font-size:13px;margin-top:4px">נייבי דרמטי על תמונת לילה + מבטאים זהב. הכי "סטייטמנט", הכי בולט.</p>
+      </div>
+      <div class="vibe">Mood: Statement · Cinematic</div>
+    </div>
+    <div class="swatches">
+      <div class="swatch" style="background:#0F2A47;color:#F5F1E8"><span class="name">Background</span><span class="hex">#0F2A47</span></div>
+      <div class="swatch" style="background:#0A1F36;color:#F5F1E8"><span class="name">Surface</span><span class="hex">#0A1F36</span></div>
+      <div class="swatch" style="background:#F5F1E8;color:#0F2A47"><span class="name">Primary BG</span><span class="hex">#F5F1E8</span></div>
+      <div class="swatch" style="background:#C9A961;color:#0F2A47"><span class="name">Accent</span><span class="hex">#C9A961</span></div>
+      <div class="swatch" style="background:#F5F1E8;color:#0F2A47"><span class="name">Text on Dark</span><span class="hex">#F5F1E8</span></div>
+    </div>
+    <div class="preview">
+      <div class="hero">
+        <div class="hero-top">
+          <div class="nav-links"><a>הפרויקט</a><a>הדירות</a><a>גלריה</a><a>צור קשר</a></div>
+          <div class="logo-mark">SOLD 7-9</div>
+        </div>
+        <div class="hero-content">
+          <span class="badge">פרויקט בוטיק · בשיווק</span>
+          <h1 class="h1">איפה שהאור פוגש את הבית.</h1>
+          <p class="h1-sub">28 דירות בעיצוב בוטיק. אדריכלות מודרנית, נופים פתוחים, וחיים שלא מתפשרים.</p>
+          <div class="cta-row">
+            <button class="btn btn-primary">לקבלת פרטים</button>
+            <button class="btn btn-ghost">צפייה בגלריה</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-side">
+        <h3 class="form-title">השאירו פרטים</h3>
+        <p class="form-sub">נציג מהפרויקט יחזור אליכם תוך 24 שעות</p>
+        <div class="field"><label>שם מלא</label><input type="text" placeholder="ישראל ישראלי"></div>
+        <div class="field"><label>טלפון</label><input type="tel" placeholder="050-0000000"></div>
+        <div class="field"><label>אימייל</label><input type="email" placeholder="name@email.com"></div>
+        <button class="form-btn">שליחה</button>
+      </div>
+    </div>
+    <div class="typo-strip">
+      <span><strong>Headlines:</strong> Frank Ruhl Libre</span>
+      <span><strong>Body:</strong> Heebo</span>
+      <span><strong>Mood:</strong> סטייטמנט, פרימיום, סינמטי</span>
+    </div>
+  </div>
+
+  <!-- ===================== PALETTE D ===================== -->
+  <div class="palette pal-d">
+    <div class="palette-meta">
+      <div>
+        <h2>D · Stone & Forest <span class="tag">Earthy · Modern</span></h2>
+        <p style="color:#aaa;font-size:13px;margin-top:4px">אבן בהירה + ירוק יער עמוק. אקולוגי, רגוע, "פרויקט שמכבד את הסביבה".</p>
+      </div>
+      <div class="vibe">Mood: Natural · Grounded</div>
+    </div>
+    <div class="swatches">
+      <div class="swatch" style="background:#EFEDE7;color:#2D3E2F"><span class="name">Background</span><span class="hex">#EFEDE7</span></div>
+      <div class="swatch" style="background:#DDD8C8;color:#2D3E2F"><span class="name">Surface</span><span class="hex">#DDD8C8</span></div>
+      <div class="swatch" style="background:#2D3E2F;color:#EFEDE7"><span class="name">Primary</span><span class="hex">#2D3E2F</span></div>
+      <div class="swatch" style="background:#B8A88A;color:#2D3E2F"><span class="name">Accent</span><span class="hex">#B8A88A</span></div>
+      <div class="swatch" style="background:#1F1F1F;color:#fff"><span class="name">Text</span><span class="hex">#1F1F1F</span></div>
+    </div>
+    <div class="preview">
+      <div class="hero">
+        <div class="hero-top">
+          <div class="nav-links"><a>הפרויקט</a><a>הדירות</a><a>גלריה</a><a>צור קשר</a></div>
+          <div class="logo-mark">SOLD 7-9</div>
+        </div>
+        <div class="hero-content">
+          <span class="badge">פרויקט בוטיק · בשיווק</span>
+          <h1 class="h1">לחיות בתוך הטבע, בלב העיר.</h1>
+          <p class="h1-sub">מרפסות ירוקות, גינות פרטיות וחיבור אמיתי לסביבה. בית שיודע לנשום.</p>
+          <div class="cta-row">
+            <button class="btn btn-primary">לקבלת פרטים</button>
+            <button class="btn btn-ghost">צפייה בגלריה</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-side">
+        <h3 class="form-title">השאירו פרטים</h3>
+        <p class="form-sub">נציג מהפרויקט יחזור אליכם תוך 24 שעות</p>
+        <div class="field"><label>שם מלא</label><input type="text" placeholder="ישראל ישראלי"></div>
+        <div class="field"><label>טלפון</label><input type="tel" placeholder="050-0000000"></div>
+        <div class="field"><label>אימייל</label><input type="email" placeholder="name@email.com"></div>
+        <button class="form-btn">שליחה</button>
+      </div>
+    </div>
+    <div class="typo-strip">
+      <span><strong>Headlines:</strong> Frank Ruhl Libre</span>
+      <span><strong>Body:</strong> Heebo</span>
+      <span><strong>Mood:</strong> אדמתי, אורגני, "ירוק"</span>
+    </div>
+  </div>
+
+  <!-- ===================== PALETTE E ===================== -->
+  <div class="palette pal-e">
+    <div class="palette-meta">
+      <div>
+        <h2>E · Pure White & Bronze <span class="tag">Minimalist · Editorial</span></h2>
+        <p style="color:#aaa;font-size:13px;margin-top:4px">לבן טהור, שחור עמוק וטון ארד. הכי מינימליסטי, הכי "מגזין עיצוב".</p>
+      </div>
+      <div class="vibe">Mood: Quiet · Editorial</div>
+    </div>
+    <div class="swatches">
+      <div class="swatch" style="background:#FFFFFF;color:#1C1C1C;border-inline-start:1px solid #eee"><span class="name">Background</span><span class="hex">#FFFFFF</span></div>
+      <div class="swatch" style="background:#F0EDE8;color:#1C1C1C"><span class="name">Surface</span><span class="hex">#F0EDE8</span></div>
+      <div class="swatch" style="background:#1C1C1C;color:#fff"><span class="name">Primary</span><span class="hex">#1C1C1C</span></div>
+      <div class="swatch" style="background:#8B6F47;color:#fff"><span class="name">Accent</span><span class="hex">#8B6F47</span></div>
+      <div class="swatch" style="background:#3D3D3D;color:#fff"><span class="name">Text Soft</span><span class="hex">#3D3D3D</span></div>
+    </div>
+    <div class="preview">
+      <div class="hero">
+        <div class="hero-top">
+          <div class="nav-links"><a>הפרויקט</a><a>הדירות</a><a>גלריה</a><a>צור קשר</a></div>
+          <div class="logo-mark">SOLD 7-9</div>
+        </div>
+        <div class="hero-content">
+          <span class="badge">פרויקט בוטיק · בשיווק</span>
+          <h1 class="h1">פחות זה יותר.</h1>
+          <p class="h1-sub">אדריכלות מינימליסטית, חומרים אצילים וחללים שמדברים בשקט. פרויקט בוטיק לבעלי טעם.</p>
+          <div class="cta-row">
+            <button class="btn btn-primary">לקבלת פרטים</button>
+            <button class="btn btn-ghost">צפייה בגלריה</button>
+          </div>
+        </div>
+      </div>
+      <div class="form-side">
+        <h3 class="form-title">השאירו פרטים</h3>
+        <p class="form-sub">נציג מהפרויקט יחזור אליכם תוך 24 שעות</p>
+        <div class="field"><label>שם מלא</label><input type="text" placeholder="ישראל ישראלי"></div>
+        <div class="field"><label>טלפון</label><input type="tel" placeholder="050-0000000"></div>
+        <div class="field"><label>אימייל</label><input type="email" placeholder="name@email.com"></div>
+        <button class="form-btn">שליחה</button>
+      </div>
+    </div>
+    <div class="typo-strip">
+      <span><strong>Headlines:</strong> Frank Ruhl Libre</span>
+      <span><strong>Body:</strong> Heebo</span>
+      <span><strong>Mood:</strong> מגזין עיצוב, מינימליסטי, שקט</span>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <strong>איך לבחור?</strong> תחשוב על מי הקהל. <strong>A</strong> ו-<strong>C</strong> הכי "פרימיום-קלאסי" (לכמו park-tower). <strong>B</strong> הכי "בית חם" (לכמו hod-hadar). <strong>D</strong> ייחודי, אקולוגי. <strong>E</strong> הכי קונספטואלי, "מגזין עיצוב". אחרי שתבחר, אני אבנה את כל הדף הנחיתה בכיוון הזה.
+  </div>
+</div>
+</body>
+</html>
