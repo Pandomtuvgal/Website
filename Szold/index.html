@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>הנרייטה סולד 7-9 · פרויקט בוטיק ברמת השרון | קבוצת וייס</title>
+<meta name="description" content="פרויקט בוטיק חדש של 26 דירות בלב רמת השרון. אדריכלות מוקפדת, מרפסות גדולות, וחיבור אמיתי לבית. לקראת בנייה. מאת קבוצת וייס." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Frank+Ruhl+Libre:wght@300;400;500;700&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+  /* ===== Design Tokens — Palette B (Warm Beige & Charcoal) ===== */
+  :root{
+    --bg:           #F4EFE6;   /* warm beige */
+    --surface:      #EAE3D4;
+    --surface-2:    #E1D9CC;
+    --primary:      #2C2A26;   /* charcoal */
+    --primary-soft: #4A4642;
+    --accent:       #8A7B6A;   /* warm taupe */
+    --hairline:     rgba(44,42,38,0.14);
+    --hairline-soft:rgba(44,42,38,0.07);
+    --serif: 'Frank Ruhl Libre', 'Times New Roman', serif;
+    --sans:  'Heebo', system-ui, sans-serif;
+  }
+
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    font-weight:300;
+    font-size:16px;
+    line-height:1.7;
+    color:var(--primary);
+    background:var(--bg);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%;height:auto}
+  button,input{font-family:inherit}
+
+  /* ===== Header ===== */
+  .site-header{
+    position:absolute;
+    top:0; inset-inline-start:0; inset-inline-end:0;
+    z-index:10;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:32px 56px;
+    color:var(--bg);
+  }
+  .logo-wordmark{display:flex;flex-direction:column;line-height:1.15}
+  .brand-line{
+    font-size:10px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    opacity:0.85;
+    font-weight:500;
+  }
+  .project-line{
+    font-family:'Cormorant Garamond', 'Times New Roman', serif;
+    font-size:26px;
+    font-weight:300;
+    letter-spacing:0.18em;
+    margin-top:8px;
+    line-height:1;
+  }
+  .phone-link{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:13px;
+    letter-spacing:1.5px;
+    font-weight:400;
+    border:1px solid currentColor;
+    padding:11px 22px;
+    transition:background 0.25s, color 0.25s;
+  }
+  .phone-link:hover{background:var(--bg);color:var(--primary)}
+  .phone-link::before{
+    content:'';
+    width:6px;height:6px;border-radius:50%;
+    background:currentColor;opacity:0.7;
+  }
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+  }
+  .hero-bg{
+    position:absolute;inset:0;
+    background-image:url('assets/interior-garden.jpg');
+    background-size:cover;
+    background-position:center;
+    background-color:#1c1a18;
+    animation:kenBurns 36s ease-in-out infinite alternate;
+  }
+  @keyframes kenBurns{
+    0%  {transform:scale(1.0) translateX(0)}
+    100%{transform:scale(1.08) translateX(-2%)}
+  }
+  .hero-overlay{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(250deg, rgba(20,18,16,0.85) 0%, rgba(20,18,16,0.6) 38%, rgba(20,18,16,0.22) 70%, rgba(20,18,16,0.4) 100%),
+      linear-gradient(180deg, rgba(20,18,16,0.35) 0%, rgba(20,18,16,0) 25%, rgba(20,18,16,0) 70%, rgba(20,18,16,0.45) 100%);
+  }
+
+  .hero-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:1400px;
+    margin:0 auto;
+    padding:140px 56px 100px;
+    display:grid;
+    grid-template-columns:1.35fr 1fr;
+    gap:80px;
+    align-items:center;
+  }
+
+  .hero-text{color:var(--bg)}
+  .eyebrow{
+    display:inline-block;
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    font-weight:500;
+    padding-bottom:12px;
+    margin-bottom:32px;
+    border-bottom:1px solid currentColor;
+    opacity:0.95;
+  }
+  .hero-text h1{
+    font-family:var(--serif);
+    font-size:clamp(42px, 6vw, 80px);
+    font-weight:700;
+    line-height:1.05;
+    letter-spacing:-2px;
+    margin-bottom:28px;
+  }
+  .lead{
+    font-size:18px;
+    line-height:1.75;
+    font-weight:300;
+    margin-bottom:40px;
+    max-width:540px;
+    opacity:0.94;
+  }
+  .stats{
+    list-style:none;
+    display:flex;
+    flex-wrap:wrap;
+    gap:0;
+    font-size:12px;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-weight:500;
+  }
+  .stats li{
+    position:relative;
+    padding:0 18px;
+  }
+  .stats li:first-child{padding-inline-start:0}
+  .stats li:last-child{padding-inline-end:0}
+  .stats li + li::before{
+    content:'';
+    position:absolute;
+    inset-inline-end:100%;
+    top:50%;
+    transform:translateY(-50%);
+    width:1px;height:12px;
+    background:currentColor;
+    opacity:0.4;
+  }
+
+  /* ===== Hero Form Card ===== */
+  .hero-form{
+    background:var(--bg);
+    padding:46px 42px;
+    color:var(--primary);
+    box-shadow:0 30px 80px rgba(0,0,0,0.32);
+    position:relative;
+  }
+  .hero-form::before{
+    content:'';
+    position:absolute;
+    top:-1px;inset-inline-start:-1px;
+    width:48px;height:1px;
+    background:var(--accent);
+  }
+  .form-title{
+    font-family:var(--serif);
+    font-size:28px;
+    font-weight:500;
+    margin-bottom:8px;
+    letter-spacing:-0.5px;
+  }
+  .form-sub{
+    font-size:14px;
+    margin-bottom:32px;
+    color:var(--primary-soft);
+    font-weight:400;
+  }
+  .field{display:flex;flex-direction:column;margin-bottom:18px}
+  .field label{
+    font-size:10px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+    font-weight:600;
+    color:var(--primary-soft);
+  }
+  .field input{
+    padding:10px 0 12px;
+    border:none;
+    border-bottom:1px solid var(--hairline);
+    background:transparent;
+    font-size:16px;
+    color:var(--primary);
+    border-radius:0;
+    transition:border-color 0.25s;
+  }
+  .field input:focus{outline:none;border-bottom-color:var(--primary)}
+  .field input::placeholder{color:var(--accent);opacity:0.55;font-weight:300}
+
+  .form-btn{
+    width:100%;
+    margin-top:16px;
+    padding:17px;
+    font-size:12px;
+    letter-spacing:3.5px;
+    text-transform:uppercase;
+    background:var(--primary);
+    color:var(--bg);
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+    transition:background 0.25s, letter-spacing 0.25s;
+  }
+  .form-btn:hover{background:#1a1815;letter-spacing:4px}
+  .form-disclaimer{
+    font-size:11px;
+    color:var(--primary-soft);
+    margin-top:16px;
+    line-height:1.6;
+    text-align:center;
+    opacity:0.8;
+  }
+  .form-success{
+    display:none;
+    text-align:center;
+    padding:40px 0;
+  }
+  .form-success.is-visible{display:block}
+  .form-success h4{
+    font-family:var(--serif);
+    font-size:24px;
+    font-weight:500;
+    margin-bottom:8px;
+  }
+  .form-success p{font-size:14px;color:var(--primary-soft)}
+
+  /* ===== About Section (2x2 grid: Media on right, Text on left) ===== */
+  .about{
+    padding:120px 56px;
+    background:var(--bg);
+    position:relative;
+  }
+  .about-grid{
+    max-width:1400px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1.15fr;   /* media | text */
+    column-gap:80px;
+    row-gap:72px;
+    align-items:center;
+  }
+  .media-cell{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .row-divider{
+    grid-column:1 / -1;
+    height:1px;
+    background:var(--hairline);
+  }
+
+  .section-eyebrow{
+    display:inline-block;
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--accent);
+    margin-bottom:18px;
+  }
+  .about h2{
+    font-family:var(--serif);
+    font-size:clamp(30px, 3.2vw, 42px);
+    font-weight:500;
+    letter-spacing:-1px;
+    line-height:1.1;
+    margin-bottom:22px;
+    color:var(--primary);
+  }
+  .about p{
+    font-size:16px;
+    line-height:1.8;
+    font-weight:300;
+    margin-bottom:18px;
+    color:var(--primary-soft);
+  }
+  .about p:last-of-type{margin-bottom:24px}
+
+  .weiss-logo{
+    width:200px;
+    height:auto;
+    opacity:0.95;
+  }
+  .link-arrow{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--primary);
+    border-bottom:1px solid var(--accent);
+    padding-bottom:6px;
+    transition:gap 0.25s, border-color 0.25s;
+    margin-top:8px;
+  }
+  .link-arrow:hover{gap:16px;border-bottom-color:var(--primary)}
+  .link-arrow .arrow{font-size:18px;line-height:1}
+
+  /* ===== Video block ===== */
+  .video-wrap{
+    position:relative;
+    width:100%;
+    max-width:520px;
+    aspect-ratio:16/9;
+    overflow:hidden;
+    background:#1c1a18;
+    box-shadow:0 24px 60px rgba(28,26,24,0.18);
+  }
+  .about-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .video-wrap::after{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(28,26,24,0) 55%, rgba(28,26,24,0.35) 100%);
+    pointer-events:none;
+    transition:opacity 0.4s;
+    z-index:1;
+  }
+  .video-wrap.is-playing::after{opacity:0}
+
+  .play-button{
+    position:absolute;
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+    width:96px; height:96px;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    padding:0;
+    z-index:2;
+    transition:transform 0.3s ease, opacity 0.35s ease;
+  }
+  .play-button svg{
+    width:100%;
+    height:100%;
+    display:block;
+    filter:drop-shadow(0 10px 28px rgba(0,0,0,0.45));
+  }
+  .play-button:hover{transform:translate(-50%,-50%) scale(1.08)}
+  .video-wrap.is-playing .play-button{
+    opacity:0;
+    pointer-events:none;
+  }
+
+  /* ===== Footer ===== */
+  .site-footer{
+    background:var(--primary);
+    color:var(--bg);
+    padding:36px 56px;
+    font-size:13px;
+    font-weight:300;
+  }
+  .footer-inner{
+    max-width:1400px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+  }
+  .foot-meta{opacity:0.75;letter-spacing:0.5px}
+  .foot-contact{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  .foot-contact .dot{opacity:0.4}
+  .foot-contact a{transition:color 0.2s}
+  .foot-contact a:hover{color:var(--accent)}
+
+  /* ===== Responsive ===== */
+  @media (max-width:1024px){
+    .hero-content{grid-template-columns:1fr;gap:48px;padding:130px 40px 80px}
+    .about{padding:90px 40px}
+    .about-grid{
+      grid-template-columns:1fr;
+      column-gap:0;
+      row-gap:40px;
+    }
+    .video-wrap{max-width:560px;aspect-ratio:16/9}
+    .weiss-logo{width:170px}
+    .site-header{padding:24px 32px}
+  }
+  @media (max-width:600px){
+    .site-header{padding:18px 22px}
+    .phone-link{padding:9px 14px;font-size:11px;letter-spacing:1px}
+    .project-line{font-size:15px;letter-spacing:0.14em}
+    .brand-line{font-size:9px;letter-spacing:3px}
+    .hero-content{padding:120px 24px 60px;gap:36px}
+    .hero-form{padding:34px 26px}
+    .about{padding:64px 24px}
+    .about-grid{row-gap:32px}
+    .video-wrap{aspect-ratio:16/9}
+    .play-button{width:64px;height:64px}
+    .weiss-logo{width:140px}
+    .stats{font-size:11px}
+    .stats li{padding:0 12px}
+    .footer-inner{flex-direction:column;text-align:center;gap:14px}
+  }
+
+  /* ===== Entrance Animations ===== */
+  @keyframes fadeUp{
+    from{opacity:0;transform:translateY(24px)}
+    to  {opacity:1;transform:translateY(0)}
+  }
+  .hero-text > *{animation:fadeUp 0.9s ease-out backwards}
+  .hero-text > *:nth-child(1){animation-delay:0.10s}
+  .hero-text > *:nth-child(2){animation-delay:0.25s}
+  .hero-text > *:nth-child(3){animation-delay:0.40s}
+  .hero-text > *:nth-child(4){animation-delay:0.55s}
+  .hero-form{animation:fadeUp 1s ease-out 0.55s backwards}
+  .site-header{animation:fadeUp 0.8s ease-out backwards}
+</style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header">
+  <div class="logo-wordmark">
+    <span class="brand-line">קבוצת וייס</span>
+    <span class="project-line">HENRIETTA SZOLD 7-9</span>
+  </div>
+  <a href="tel:*3688" class="phone-link">חייגו עכשיו · *3688</a>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-overlay" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="eyebrow">פרויקט בוטיק · לקראת בנייה</span>
+      <h1>הבית הבא שלכם<br>בלב רמת השרון.</h1>
+      <p class="lead">פרויקט בוטיק חדש בלב אחת השכונות האהובות במרכז. אדריכלות מוקפדת, מרפסות פתוחות, וחיבור אמיתי לבית, לכל דורות המשפחה.</p>
+      <ul class="stats">
+        <li>7 קומות</li>
+        <li>26 דירות</li>
+        <li>4–5 חדרים</li>
+      </ul>
+    </div>
+
+    <aside class="hero-form" aria-labelledby="formTitle">
+      <div class="form-body">
+        <h3 class="form-title" id="formTitle">לקבלת פרטים מלאים</h3>
+        <p class="form-sub">השאירו פרטים ונחזור אליכם בהקדם</p>
+        <form id="leadForm" novalidate>
+          <div class="field">
+            <label for="name">שם מלא</label>
+            <input type="text" id="name" name="name" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="phone">טלפון</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="numeric" required />
+          </div>
+          <div class="field">
+            <label for="email">אימייל</label>
+            <input type="email" id="email" name="email" autocomplete="email" />
+          </div>
+          <button type="submit" class="form-btn">שליחה</button>
+          <p class="form-disclaimer">לחיצה על "שליחה" מהווה הסכמה לקבלת מידע על הפרויקט.</p>
+        </form>
+      </div>
+      <div class="form-success" id="formSuccess" role="status" aria-live="polite">
+        <h4>תודה!</h4>
+        <p>קיבלנו את הפרטים. נחזור אליכם בהקדם.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ===== About: Project + Weiss (split) ===== -->
+<section class="about">
+  <div class="about-grid">
+    <!-- Row 1: Video (right in RTL) + Project text (left) -->
+    <div class="media-cell">
+      <div class="video-wrap" id="videoWrap">
+        <video id="aboutVideo" class="about-video"
+               playsinline preload="metadata"
+               poster="assets/exterior-night.jpg">
+          <source src="assets/hero.mp4" type="video/mp4" />
+        </video>
+        <button type="button" class="play-button" id="playButton" aria-label="הפעלת סרטון">
+          <svg viewBox="0 0 80 80" aria-hidden="true">
+            <circle cx="40" cy="40" r="38" fill="rgba(244,239,230,0.96)" />
+            <polygon points="33,26 33,54 56,40" fill="#2C2A26" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <article class="text-cell">
+      <span class="section-eyebrow">על הפרויקט</span>
+      <h2>בוטיק. שקט. ביתי.</h2>
+      <p>פרויקט קטן ומדויק בלב רמת השרון, מתוכנן במחשבה ובמידה. 26 דירות בלבד, מרפסות עמוקות וגינה פרטית בקומת הקרקע.</p>
+      <p>רחוק מההמולה, קרוב לכל מה שחשוב — בתי ספר, פארקים, קפה השכונה ומרכז העיר במרחק הליכה.</p>
+    </article>
+
+    <div class="row-divider" aria-hidden="true"></div>
+
+    <!-- Row 2: Weiss logo (right) + Weiss text (left) -->
+    <div class="media-cell">
+      <img src="assets/weiss-logo.png" alt="קבוצת וייס" class="weiss-logo" />
+    </div>
+
+    <article class="text-cell">
+      <span class="section-eyebrow">על היזם</span>
+      <h2>קבוצת וייס.</h2>
+      <p>מאחורי כל פרויקט שלנו עומדים שלושה עקרונות: איכות שמרגישים, אמינות שאפשר לסמוך עליה, ועיצוב שעומד במבחן הזמן.</p>
+      <a href="https://weissgroup.co.il" target="_blank" rel="noopener" class="link-arrow">לאתר קבוצת וייס <span class="arrow">←</span></a>
+    </article>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="foot-meta">© 2026 קבוצת וייס · כל הזכויות שמורות</div>
+    <div class="foot-contact">
+      <span>הנרייטה סולד 7-9, רמת השרון</span>
+      <span class="dot">·</span>
+      <a href="tel:*3688">*3688</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Lightweight form handler — replace with real submission endpoint when ready.
+  const form = document.getElementById('leadForm');
+  const formBody = document.querySelector('.form-body');
+  const formSuccess = document.getElementById('formSuccess');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = form.name.value.trim();
+    const phone = form.phone.value.trim();
+    if (!name || !phone) {
+      // Visual nudge on empty required fields.
+      [form.name, form.phone].forEach(input => {
+        if (!input.value.trim()) {
+          input.style.borderBottomColor = '#a14444';
+          input.addEventListener('input', () => { input.style.borderBottomColor = ''; }, { once: true });
+        }
+      });
+      return;
+    }
+    // TODO: send {name, phone, email} to a backend / CRM webhook.
+    formBody.style.display = 'none';
+    formSuccess.classList.add('is-visible');
+  });
+
+  // ===== Play button for project video =====
+  const video = document.getElementById('aboutVideo');
+  const playBtn = document.getElementById('playButton');
+  const videoWrap = document.getElementById('videoWrap');
+
+  const togglePlay = () => {
+    if (video.paused) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  };
+
+  playBtn.addEventListener('click', togglePlay);
+  video.addEventListener('click', () => { if (!video.paused) video.pause(); });
+  video.addEventListener('play',  () => videoWrap.classList.add('is-playing'));
+  video.addEventListener('pause', () => videoWrap.classList.remove('is-playing'));
+  video.addEventListener('ended', () => videoWrap.classList.remove('is-playing'));
+</script>
+
+</body>
+</html>
