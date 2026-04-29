@@ -469,34 +469,15 @@
     .stats{justify-content:center;font-size:11px;letter-spacing:2.5px}
     .stats li{padding:0 10px}
 
-    /* Form — transparent white card, centered text on mobile */
+    /* Form — translucent white card with centered text on mobile */
     .hero-form{
       padding:36px 26px;
-      background:rgba(255,255,255,0.13);
-      color:var(--bg);
+      background:rgba(255,255,255,0.86);
+      border:1px solid rgba(255,255,255,0.5);
       text-align:center;
-      border:1px solid rgba(244,239,230,0.18);
-      box-shadow:none;
+      box-shadow:0 24px 48px rgba(28,26,24,0.20);
     }
-    .hero-form::before{background:rgba(244,239,230,0.55)}
-    .form-title{color:var(--bg)}
-    .form-sub{color:rgba(244,239,230,0.78)}
-    .field label{color:rgba(244,239,230,0.7)}
-    .field input{
-      color:var(--bg);
-      border-bottom-color:rgba(244,239,230,0.3);
-      text-align:center;
-    }
-    .field input:focus{border-bottom-color:var(--bg)}
-    .field input::placeholder{color:rgba(244,239,230,0.42)}
-    .form-btn{
-      background:var(--bg);
-      color:var(--primary);
-    }
-    .form-btn:hover{background:#fff;color:var(--primary)}
-    .form-disclaimer{color:rgba(244,239,230,0.65)}
-    .form-success h4{color:var(--bg)}
-    .form-success p{color:rgba(244,239,230,0.78)}
+    .field input{text-align:center}
 
     /* About & footer */
     .about{padding:64px 24px}
